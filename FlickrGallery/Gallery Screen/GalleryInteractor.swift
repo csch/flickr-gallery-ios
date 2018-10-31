@@ -13,6 +13,10 @@ final class GalleryInteractor: GalleryInteracting {
     
     func provideRawImageMetadata(completion: @escaping ([RawImageMetadata]) -> Void) {
         jsonLoader.loadImageFeedJson { [weak self] data in
+            guard let data = data else {
+                completion([])
+                return
+            }
             let imageMetadata = self?.provideRawImageMetadata(fromJson: data) ?? []
             completion(imageMetadata)
         }

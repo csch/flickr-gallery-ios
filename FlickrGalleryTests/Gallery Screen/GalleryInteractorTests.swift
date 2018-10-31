@@ -3,20 +3,41 @@ import XCTest
 
 class GalleryInteractorTests: XCTestCase {
 
+    private var stubJsonLoader: StubJsonLoader!
     private var interactor: GalleryInteractor!
     
     override func setUp() {
         super.setUp()
-        let jsonLoader = StubJsonLoader()
-        interactor = GalleryInteractor(jsonLoader: jsonLoader)
+        stubJsonLoader = StubJsonLoader()
+        interactor = GalleryInteractor(jsonLoader: stubJsonLoader)
     }
     
     override func tearDown() {
+        stubJsonLoader = nil
         interactor = nil
         super.tearDown()
     }
     
-    func test_provideRawImageMetadata_returns20MetadataItems() {
+    var dataFromLocalFlickrJsonFile: Data {
+        let bundle = Bundle(for: type(of: self))
+        let path = bundle.path(forResource: "Test", ofType: "json")!
+        guard let jsonData = NSData(contentsOfFile: path) else {
+            fatalError("Could not load json file for testing")
+        }
+        return jsonData as Data
+    }
+    
+    func test_provideRawImageMetadata_noData_returnsEmptyMetadataItems() {
+        stubJsonLoader.stubData = nil
+        var receivedImageMetadataArray: [RawImageMetadata] = []
+        interactor.provideRawImageMetadata { (imageMetadataArray) in
+            receivedImageMetadataArray = imageMetadataArray
+        }
+        XCTAssertEqual(receivedImageMetadataArray.count, 0)
+    }
+    
+    func test_provideRawImageMetadata_localJsonData_returns20MetadataItems() {
+        stubJsonLoader.stubData = dataFromLocalFlickrJsonFile
         var receivedImageMetadataArray: [RawImageMetadata] = []
         interactor.provideRawImageMetadata { (imageMetadataArray) in
             receivedImageMetadataArray = imageMetadataArray
@@ -24,7 +45,8 @@ class GalleryInteractorTests: XCTestCase {
         XCTAssertEqual(receivedImageMetadataArray.count, 20)
     }
     
-    func test_provideRawImageMetadata_firstImageMetadataHasCorrectValues() {
+    func test_provideRawImageMetadata_localJsonData_firstImageMetadataHasCorrectValues() {
+        stubJsonLoader.stubData = dataFromLocalFlickrJsonFile
         var firstImageMetadata: RawImageMetadata?
         interactor.provideRawImageMetadata { (imageMetadataArray) in
             firstImageMetadata = imageMetadataArray.first
