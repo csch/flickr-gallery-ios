@@ -15,3 +15,7 @@ struct RawImageMetadata: Decodable {
     let author: String?
     let tags: String?
 }
+
+struct ImageMetadata {
+    
+}

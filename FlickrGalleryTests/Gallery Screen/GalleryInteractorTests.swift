@@ -3,12 +3,12 @@ import XCTest
 
 class GalleryInteractorTests: XCTestCase {
 
-    private var stubJsonLoader: StubJsonLoader!
+    private var stubJsonLoader: StubFlickrJsonLoader!
     private var interactor: GalleryInteractor!
     
     override func setUp() {
         super.setUp()
-        stubJsonLoader = StubJsonLoader()
+        stubJsonLoader = StubFlickrJsonLoader()
         interactor = GalleryInteractor(jsonLoader: stubJsonLoader)
     }
     

@@ -1,7 +1,7 @@
 import UIKit
 @testable import FlickrGallery
 
-final class SpyAndStubAppCoordinator: AppCoordinator {
+final class StubAppCoordinator: AppCoordinator {
     
     var spyNumShowGalleryScreenCalled = 0
     

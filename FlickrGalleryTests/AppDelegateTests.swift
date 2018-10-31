@@ -21,7 +21,7 @@ class AppDelegateTests: XCTestCase {
     }
     
     func test_startApp_showsGalleryScreen() {
-        let appCoordinator = SpyAndStubAppCoordinator()
+        let appCoordinator = StubAppCoordinator()
         delegate?.startApp(appCoordinator: appCoordinator)
         XCTAssertEqual(appCoordinator.spyNumShowGalleryScreenCalled, 1)
     }

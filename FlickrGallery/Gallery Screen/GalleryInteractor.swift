@@ -1,6 +1,7 @@
 import Foundation
 
 protocol GalleryInteracting {
+    func provideRawImageMetadata(completion: @escaping ([RawImageMetadata]) -> Void)
 }
 
 final class GalleryInteractor: GalleryInteracting {

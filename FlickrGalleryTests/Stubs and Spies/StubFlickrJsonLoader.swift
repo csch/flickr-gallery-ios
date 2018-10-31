@@ -1,7 +1,7 @@
 import Foundation
 @testable import FlickrGallery
 
-final class StubJsonLoader: FlickrJsonLoading {
+final class StubFlickrJsonLoader: FlickrJsonLoading {
     
     var stubData: Data?
     

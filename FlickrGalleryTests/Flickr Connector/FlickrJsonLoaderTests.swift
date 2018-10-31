@@ -4,40 +4,40 @@ import XCTest
 class FlickrJsonLoaderTests: XCTestCase {
     
     private var spySyncDispatcher: SpySyncDispatcher!
-    private var spyDataTask: SpyURLSessionDataTask!
-    private var spyAndStubUrlSession: SpyAndStubURLSession!
+    private var stubDataTask: StubURLSessionDataTask!
+    private var stubUrlSession: StubURLSession!
     private var jsonLoader: FlickrJsonLoader!
     
     override func setUp() {
         super.setUp()
         spySyncDispatcher = SpySyncDispatcher()
-        spyDataTask = SpyURLSessionDataTask()
-        spyAndStubUrlSession = SpyAndStubURLSession(dataTask: spyDataTask)
-        jsonLoader = FlickrJsonLoader(urlSession: spyAndStubUrlSession, dispatcher: spySyncDispatcher)
+        stubDataTask = StubURLSessionDataTask()
+        stubUrlSession = StubURLSession(dataTask: stubDataTask)
+        jsonLoader = FlickrJsonLoader(urlSession: stubUrlSession, dispatcher: spySyncDispatcher)
     }
     
     override func tearDown() {
         spySyncDispatcher = nil
-        spyDataTask = nil
-        spyAndStubUrlSession = nil
+        stubDataTask = nil
+        stubUrlSession = nil
         jsonLoader = nil
         super.tearDown()
     }
     
     func test_loadImageFeedJson_callsFlickrAPIWithCorrectURL() {
         jsonLoader.loadImageFeedJson { _ in }
-        XCTAssertEqual(spyAndStubUrlSession.spyURL?.absoluteString, "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1")
+        XCTAssertEqual(stubUrlSession.spyURL?.absoluteString, "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1")
     }
     
     func test_loadImageFeedJson_startsDataTask() {
         jsonLoader.loadImageFeedJson { _ in }
-        XCTAssertEqual(spyDataTask.spyNumResumeCalled, 1)
+        XCTAssertEqual(stubDataTask.spyNumResumeCalled, 1)
     }
     
     func test_loadImageFeedJson_dataReceived_callsCompletion() {
         var responseData: Data?
         let stubData = Data()
-        spyAndStubUrlSession.stubData = stubData
+        stubUrlSession.stubData = stubData
         jsonLoader.loadImageFeedJson { data in
             responseData = data
         }
@@ -45,7 +45,7 @@ class FlickrJsonLoaderTests: XCTestCase {
     }
     
     func test_loadImageFeedJson_dataReceived_callsCompletionOnMain() {
-        spyAndStubUrlSession.stubData = Data()
+        stubUrlSession.stubData = Data()
         jsonLoader.loadImageFeedJson { data in
         }
         XCTAssertEqual(spySyncDispatcher.spyNumDispatchAsyncOnMainCalled, 1)
@@ -54,7 +54,7 @@ class FlickrJsonLoaderTests: XCTestCase {
     func test_loadImageFeedJson_noData_callsCompletionWithNoData() {
         var responseData: Data?
         var completionCalled = false
-        spyAndStubUrlSession.stubData = nil
+        stubUrlSession.stubData = nil
         jsonLoader.loadImageFeedJson { data in
             responseData = data
             completionCalled = true
@@ -64,7 +64,7 @@ class FlickrJsonLoaderTests: XCTestCase {
     }
     
     func test_loadImageFeedJson_noData_callsCompletionOnMain() {
-        spyAndStubUrlSession.stubData = nil
+        stubUrlSession.stubData = nil
         jsonLoader.loadImageFeedJson { data in
         }
         XCTAssertEqual(spySyncDispatcher.spyNumDispatchAsyncOnMainCalled, 1)

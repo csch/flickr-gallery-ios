@@ -1,6 +1,6 @@
 import Foundation
 
-final class SpyURLSessionDataTask: URLSessionDataTask {
+final class StubURLSessionDataTask: URLSessionDataTask {
     
     var spyNumResumeCalled = 0
     
@@ -9,7 +9,7 @@ final class SpyURLSessionDataTask: URLSessionDataTask {
     }
 }
 
-final class SpyAndStubURLSession: URLSession {
+final class StubURLSession: URLSession {
     
     let dataTask: URLSessionDataTask
     var stubData: Data?
