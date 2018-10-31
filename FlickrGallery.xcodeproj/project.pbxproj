@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA48F25C2189ACE8004F1612 /* ImageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F25B2189ACE8004F1612 /* ImageMetadata.swift */; };
+		AA48F2622189AD18004F1612 /* StubFlickrJsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F2602189AD18004F1612 /* StubFlickrJsonLoader.swift */; };
+		AA48F2652189AD2F004F1612 /* Test.json in Resources */ = {isa = PBXBuildFile; fileRef = AA48F2642189AD2F004F1612 /* Test.json */; };
+		AA48F2682189ADD6004F1612 /* FlickrJsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F2672189ADD6004F1612 /* FlickrJsonLoader.swift */; };
+		AA48F26A2189AE4E004F1612 /* GalleryInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F2692189AE4E004F1612 /* GalleryInteractorTests.swift */; };
 		AA8228572188FAEA009A0523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8228562188FAEA009A0523 /* AppDelegate.swift */; };
 		AA8228592188FAEA009A0523 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8228582188FAEA009A0523 /* GalleryViewController.swift */; };
 		AA82285C2188FAEA009A0523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA82285A2188FAEA009A0523 /* Main.storyboard */; };
@@ -29,6 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA48F25B2189ACE8004F1612 /* ImageMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMetadata.swift; sourceTree = "<group>"; };
+		AA48F2602189AD18004F1612 /* StubFlickrJsonLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubFlickrJsonLoader.swift; sourceTree = "<group>"; };
+		AA48F2642189AD2F004F1612 /* Test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Test.json; sourceTree = "<group>"; };
+		AA48F2672189ADD6004F1612 /* FlickrJsonLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrJsonLoader.swift; sourceTree = "<group>"; };
+		AA48F2692189AE4E004F1612 /* GalleryInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GalleryInteractorTests.swift; path = FlickrGalleryTests/GalleryInteractorTests.swift; sourceTree = SOURCE_ROOT; };
 		AA8228532188FAEA009A0523 /* FlickrGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8228562188FAEA009A0523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA8228582188FAEA009A0523 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +72,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA48F2542189AC29004F1612 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				AA48F25B2189ACE8004F1612 /* ImageMetadata.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		AA48F25F2189AD18004F1612 /* Stubs and Spies */ = {
+			isa = PBXGroup;
+			children = (
+				AA48F2602189AD18004F1612 /* StubFlickrJsonLoader.swift */,
+			);
+			path = "Stubs and Spies";
+			sourceTree = "<group>";
+		};
+		AA48F2662189ADD6004F1612 /* Flickr Connector */ = {
+			isa = PBXGroup;
+			children = (
+				AA48F2672189ADD6004F1612 /* FlickrJsonLoader.swift */,
+			);
+			path = "Flickr Connector";
+			sourceTree = "<group>";
+		};
 		AA82284A2188FAEA009A0523 = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +117,9 @@
 		AA8228552188FAEA009A0523 /* FlickrGallery */ = {
 			isa = PBXGroup;
 			children = (
-				AA9325B62189093E005E69DD /* Gallery */,
+				AA48F2662189ADD6004F1612 /* Flickr Connector */,
+				AA48F2542189AC29004F1612 /* Entities */,
+				AA9325B62189093E005E69DD /* Gallery Screen */,
 				AA9325BD21890B0A005E69DD /* AppCoordinator.swift */,
 				AA8228562188FAEA009A0523 /* AppDelegate.swift */,
 				AA82285A2188FAEA009A0523 /* Main.storyboard */,
@@ -97,12 +133,15 @@
 		AA82286A2188FAEC009A0523 /* FlickrGalleryTests */ = {
 			isa = PBXGroup;
 			children = (
+				AA48F25F2189AD18004F1612 /* Stubs and Spies */,
+				AA48F2692189AE4E004F1612 /* GalleryInteractorTests.swift */,
+				AA48F2642189AD2F004F1612 /* Test.json */,
 				AA82286D2188FAEC009A0523 /* Info.plist */,
 			);
 			path = FlickrGalleryTests;
 			sourceTree = "<group>";
 		};
-		AA9325B62189093E005E69DD /* Gallery */ = {
+		AA9325B62189093E005E69DD /* Gallery Screen */ = {
 			isa = PBXGroup;
 			children = (
 				AA8228582188FAEA009A0523 /* GalleryViewController.swift */,
@@ -110,7 +149,7 @@
 				AA9325B72189097F005E69DD /* GalleryPresenter.swift */,
 				AA9325B9218909BB005E69DD /* GalleryRouter.swift */,
 			);
-			path = Gallery;
+			path = "Gallery Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA48F2652189AD2F004F1612 /* Test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,8 +257,10 @@
 			files = (
 				AA9325B82189097F005E69DD /* GalleryPresenter.swift in Sources */,
 				AA8228592188FAEA009A0523 /* GalleryViewController.swift in Sources */,
+				AA48F25C2189ACE8004F1612 /* ImageMetadata.swift in Sources */,
 				AA9325BA218909BB005E69DD /* GalleryRouter.swift in Sources */,
 				AA8228572188FAEA009A0523 /* AppDelegate.swift in Sources */,
+				AA48F2682189ADD6004F1612 /* FlickrJsonLoader.swift in Sources */,
 				AA9325AB218904DA005E69DD /* GalleryInteractor.swift in Sources */,
 				AA9325BE21890B0A005E69DD /* AppCoordinator.swift in Sources */,
 			);
@@ -228,6 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA48F2622189AD18004F1612 /* StubFlickrJsonLoader.swift in Sources */,
+				AA48F26A2189AE4E004F1612 /* GalleryInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
