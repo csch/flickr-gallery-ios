@@ -1,22 +1,35 @@
-//
-//  AppDelegate.swift
-//  FlickrGallery
-//
-//  Created by Christian on 30/10/2018.
-//  Copyright © 2018 Christian. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    lazy var rootViewController: UINavigationController = {
+        return UINavigationController()
+    }()
+    
+    lazy var appCoordinator: AppCoordinator = {
+        return AppCoordinator()
+    }()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = rootViewController
+        window?.makeKeyAndVisible()
+        
+        if !isRunningUnitTests {
+            startApp(appCoordinator: appCoordinator)
+        }
         return true
+    }
+    
+    private var isRunningUnitTests: Bool {
+        return NSClassFromString("XCTestCase") != nil
+    }
+    
+    func startApp(appCoordinator: AppCoordinator) {
+        appCoordinator.showGalleryScreen(on: rootViewController)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
