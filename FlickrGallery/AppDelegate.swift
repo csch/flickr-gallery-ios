@@ -9,7 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UINavigationController()
     }()
     
-    lazy var appCoordinator: AppCoordinator = {
+    lazy var appCoordinator: AppCoordinating = {
         return AppCoordinator()
     }()
     
@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return NSClassFromString("XCTestCase") != nil
     }
     
-    func startApp(appCoordinator: AppCoordinator) {
+    func startApp(appCoordinator: AppCoordinating) {
         appCoordinator.showGalleryScreen(on: rootViewController)
     }
 

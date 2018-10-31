@@ -1,11 +1,13 @@
 import XCTest
 @testable import FlickrGallery
 
-class StubGalleryPresenter: GalleryPresenter {
+class StubGalleryPresenter: GalleryPresenting {
+    
+    var view: GalleryView?    
 
     var spyNumPrepareDataCalled = 0
     
-    override func prepareData() {
+    func prepareData() {
         spyNumPrepareDataCalled += 1
     }
 }

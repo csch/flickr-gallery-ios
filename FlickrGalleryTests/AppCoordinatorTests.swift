@@ -3,12 +3,25 @@ import XCTest
 
 class AppCoordinatorTests: XCTestCase {
     
-    func test_showGalleryScreen_putsGalleryViewControllerOnStack() {
+    private func showGalleryScreen() -> GalleryViewController? {
         let navigationController = UINavigationController()
         let appCoordinator = AppCoordinator()
         appCoordinator.showGalleryScreen(on: navigationController)
-        XCTAssertEqual(navigationController.viewControllers.count, 1)
-        let viewController = navigationController.viewControllers.first as? GalleryViewController
+        return navigationController.viewControllers.first as? GalleryViewController
+    }
+    
+    func test_showGalleryScreen_putsGalleryViewControllerOnStack() {
+        let viewController = showGalleryScreen()
         XCTAssertNotNil(viewController)
+    }
+    
+    func test_showGalleryScreen_viewControllerHasPresenter() {
+        let viewController = showGalleryScreen()
+        XCTAssertNotNil(viewController?.presenter)
+    }
+    
+    func test_showGalleryScreen_presenterHasView() {
+        let viewController = showGalleryScreen()
+        XCTAssertEqual(viewController?.presenter?.view as? GalleryViewController, viewController)
     }
 }

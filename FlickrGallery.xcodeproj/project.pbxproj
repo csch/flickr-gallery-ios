@@ -27,6 +27,8 @@
 		AA48F28B2189DEEC004F1612 /* StubGalleryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F28A2189DEEC004F1612 /* StubGalleryPresenter.swift */; };
 		AA48F2922189FF9F004F1612 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F2912189FF9F004F1612 /* AsyncImage.swift */; };
 		AA48F296218A00FF004F1612 /* URLFetchedAsyncImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F295218A00FF004F1612 /* URLFetchedAsyncImageTests.swift */; };
+		AA48F298218A0CF1004F1612 /* GalleryImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F297218A0CF1004F1612 /* GalleryImageViewController.swift */; };
+		AA48F29E218A1E5E004F1612 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F29D218A1E5E004F1612 /* Collection+Safe.swift */; };
 		AA8228572188FAEA009A0523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8228562188FAEA009A0523 /* AppDelegate.swift */; };
 		AA8228592188FAEA009A0523 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8228582188FAEA009A0523 /* GalleryViewController.swift */; };
 		AA82285C2188FAEA009A0523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA82285A2188FAEA009A0523 /* Main.storyboard */; };
@@ -69,6 +71,8 @@
 		AA48F28A2189DEEC004F1612 /* StubGalleryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGalleryPresenter.swift; sourceTree = "<group>"; };
 		AA48F2912189FF9F004F1612 /* AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncImage.swift; path = FlickrGallery/Util/AsyncImage.swift; sourceTree = SOURCE_ROOT; };
 		AA48F295218A00FF004F1612 /* URLFetchedAsyncImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLFetchedAsyncImageTests.swift; sourceTree = "<group>"; };
+		AA48F297218A0CF1004F1612 /* GalleryImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageViewController.swift; sourceTree = "<group>"; };
+		AA48F29D218A1E5E004F1612 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		AA8228532188FAEA009A0523 /* FlickrGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8228562188FAEA009A0523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA8228582188FAEA009A0523 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +173,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		AA48F29C218A1E4F004F1612 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA48F29D218A1E5E004F1612 /* Collection+Safe.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AA82284A2188FAEA009A0523 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +202,7 @@
 		AA8228552188FAEA009A0523 /* FlickrGallery */ = {
 			isa = PBXGroup;
 			children = (
+				AA48F29C218A1E4F004F1612 /* Extensions */,
 				AA48F2662189ADD6004F1612 /* Flickr Connector */,
 				AA48F2542189AC29004F1612 /* Entities */,
 				AA9325B62189093E005E69DD /* Gallery Screen */,
@@ -223,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8228582188FAEA009A0523 /* GalleryViewController.swift */,
+				AA48F297218A0CF1004F1612 /* GalleryImageViewController.swift */,
 				AA9325AA218904DA005E69DD /* GalleryInteractor.swift */,
 				AA9325B72189097F005E69DD /* GalleryPresenter.swift */,
 				AA9325B9218909BB005E69DD /* GalleryRouter.swift */,
@@ -335,9 +349,11 @@
 			files = (
 				AA48F2922189FF9F004F1612 /* AsyncImage.swift in Sources */,
 				AA9325B82189097F005E69DD /* GalleryPresenter.swift in Sources */,
+				AA48F298218A0CF1004F1612 /* GalleryImageViewController.swift in Sources */,
 				AA8228592188FAEA009A0523 /* GalleryViewController.swift in Sources */,
 				AA48F27B2189CED7004F1612 /* Dispatcher.swift in Sources */,
 				AA48F25C2189ACE8004F1612 /* ImageMetadata.swift in Sources */,
+				AA48F29E218A1E5E004F1612 /* Collection+Safe.swift in Sources */,
 				AA9325BA218909BB005E69DD /* GalleryRouter.swift in Sources */,
 				AA8228572188FAEA009A0523 /* AppDelegate.swift in Sources */,
 				AA48F2682189ADD6004F1612 /* FlickrJsonLoader.swift in Sources */,

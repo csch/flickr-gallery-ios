@@ -1,6 +1,7 @@
 import UIKit
 
 protocol GalleryPresenting {
+    var view: GalleryView? { get }
     func prepareData()
 }
 
