@@ -25,6 +25,8 @@
 		AA48F2872189DA87004F1612 /* StubGalleryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F2862189DA87004F1612 /* StubGalleryInteractor.swift */; };
 		AA48F2892189DCFC004F1612 /* StubGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F2882189DCFC004F1612 /* StubGalleryView.swift */; };
 		AA48F28B2189DEEC004F1612 /* StubGalleryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F28A2189DEEC004F1612 /* StubGalleryPresenter.swift */; };
+		AA48F2922189FF9F004F1612 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F2912189FF9F004F1612 /* AsyncImage.swift */; };
+		AA48F296218A00FF004F1612 /* URLFetchedAsyncImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F295218A00FF004F1612 /* URLFetchedAsyncImageTests.swift */; };
 		AA8228572188FAEA009A0523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8228562188FAEA009A0523 /* AppDelegate.swift */; };
 		AA8228592188FAEA009A0523 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8228582188FAEA009A0523 /* GalleryViewController.swift */; };
 		AA82285C2188FAEA009A0523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA82285A2188FAEA009A0523 /* Main.storyboard */; };
@@ -65,6 +67,8 @@
 		AA48F2862189DA87004F1612 /* StubGalleryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGalleryInteractor.swift; sourceTree = "<group>"; };
 		AA48F2882189DCFC004F1612 /* StubGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGalleryView.swift; sourceTree = "<group>"; };
 		AA48F28A2189DEEC004F1612 /* StubGalleryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGalleryPresenter.swift; sourceTree = "<group>"; };
+		AA48F2912189FF9F004F1612 /* AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncImage.swift; path = FlickrGallery/Util/AsyncImage.swift; sourceTree = SOURCE_ROOT; };
+		AA48F295218A00FF004F1612 /* URLFetchedAsyncImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLFetchedAsyncImageTests.swift; sourceTree = "<group>"; };
 		AA8228532188FAEA009A0523 /* FlickrGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8228562188FAEA009A0523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA8228582188FAEA009A0523 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 		AA48F26F2189C72E004F1612 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				AA48F2912189FF9F004F1612 /* AsyncImage.swift */,
 				AA48F2792189CDFF004F1612 /* Dispatcher.swift */,
 			);
 			name = Util;
@@ -159,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				AA48F2772189CA5A004F1612 /* DispatcherTests.swift */,
+				AA48F295218A00FF004F1612 /* URLFetchedAsyncImageTests.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA48F2922189FF9F004F1612 /* AsyncImage.swift in Sources */,
 				AA9325B82189097F005E69DD /* GalleryPresenter.swift in Sources */,
 				AA8228592188FAEA009A0523 /* GalleryViewController.swift in Sources */,
 				AA48F27B2189CED7004F1612 /* Dispatcher.swift in Sources */,
@@ -345,6 +352,7 @@
 			files = (
 				AA48F27F2189D104004F1612 /* AppDelegateTests.swift in Sources */,
 				AA48F2872189DA87004F1612 /* StubGalleryInteractor.swift in Sources */,
+				AA48F296218A00FF004F1612 /* URLFetchedAsyncImageTests.swift in Sources */,
 				AA48F2622189AD18004F1612 /* StubFlickrJsonLoader.swift in Sources */,
 				AA48F2832189DA1E004F1612 /* GalleryViewControllerTests.swift in Sources */,
 				AA48F26E2189C091004F1612 /* FlickrJsonLoaderTests.swift in Sources */,

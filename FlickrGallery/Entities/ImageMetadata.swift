@@ -17,5 +17,7 @@ struct RawImageMetadata: Decodable {
 }
 
 struct ImageMetadata {
-    
+    let asyncImage: AsyncImage
+    let title: String?
+    let dateTakenString: String?
 }

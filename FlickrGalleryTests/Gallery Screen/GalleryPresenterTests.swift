@@ -26,14 +26,45 @@ class GalleryPresenterTests: XCTestCase {
         XCTAssertEqual(stubInteractor.spyNumProvideRawImageMetadataCalled, 1)
     }
     
-    func test_prepareData_updatesViewWithTransformedData() {
-        let media = RawImageMetadata.Media(m: "https://url.com")
-        let rawImageMetadata = RawImageMetadata(title: nil, link: nil, media: media,
+    func test_prepareData_noData_updatesView() {
+        stubInteractor.stubImageMetadata = []
+        presenter.prepareData()
+        XCTAssertEqual(stubView.spyNumUpdateCalled, 1)
+        XCTAssertEqual(stubView.spyImageMetadata?.count, 0)
+    }
+    
+    func test_prepareData_invalidData_updatesViewWithNoData() {
+        let rawImageMetadata = RawImageMetadata(title: nil, link: nil, media: nil,
                                                 date_taken: nil, description: nil,
                                                 published: nil, author: nil, tags: nil)
         stubInteractor.stubImageMetadata = [rawImageMetadata]
         presenter.prepareData()
         XCTAssertEqual(stubView.spyNumUpdateCalled, 1)
-        XCTAssertEqual(stubView.spyImageMetadata?.count, 1)
+        XCTAssertEqual(stubView.spyImageMetadata?.count, 0)
+    }
+    
+    func test_prepareData_validData_updatesViewWithCorrectData() {
+        let media = RawImageMetadata.Media(m: "https://url.com")
+        let rawImageMetadata = RawImageMetadata(title: "Title", link: nil, media: media,
+                                                date_taken: "2018-10-31T10:15:59Z", description: nil,
+                                                published: nil, author: nil, tags: nil)
+        stubInteractor.stubImageMetadata = [rawImageMetadata]
+        presenter.prepareData()
+        let imageMetadata = stubView.spyImageMetadata?.first
+        XCTAssertEqual(imageMetadata?.title, "Title")
+        XCTAssertEqual(imageMetadata?.dateTakenString, "Oct 31, 2018 at 10:15 AM")
+        XCTAssertNotNil(imageMetadata?.asyncImage)
+    }
+    
+    func test_prepareData_invalidDateTakenString_updatesViewWithDataMissingDateTaken() {
+        let media = RawImageMetadata.Media(m: "https://url.com")
+        let rawImageMetadata = RawImageMetadata(title: nil, link: nil, media: media,
+                                                date_taken: "2018-10-31 10:15:59", description: nil,
+                                                published: nil, author: nil, tags: nil)
+        stubInteractor.stubImageMetadata = [rawImageMetadata]
+        presenter.prepareData()
+        let imageMetadata = stubView.spyImageMetadata?.first
+        XCTAssertEqual(imageMetadata?.dateTakenString, nil)
+        XCTAssertNotNil(imageMetadata?.asyncImage)
     }
 }
