@@ -15,8 +15,8 @@ final class FlickrJsonLoader: FlickrJsonLoading {
     }
     
     func loadImageFeedJson(completion: @escaping (Data?) -> Void) {
-        let url = URL(string: "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1")!
-        let task = urlSession.dataTask(with: url, completionHandler: { [weak self] (data, response, error) in                        
+        let url = URL(string: "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=Southwark")!
+        let task = urlSession.dataTask(with: url, completionHandler: { [weak self] (data, response, error) in
             self?.dispatcher.dispatchAsyncOnMain {
                 completion(data)
             }

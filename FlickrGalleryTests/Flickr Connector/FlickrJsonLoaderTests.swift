@@ -26,7 +26,7 @@ class FlickrJsonLoaderTests: XCTestCase {
     
     func test_loadImageFeedJson_callsFlickrAPIWithCorrectURL() {
         jsonLoader.loadImageFeedJson { _ in }
-        XCTAssertEqual(stubUrlSession.spyURL?.absoluteString, "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1")
+        XCTAssertEqual(stubUrlSession.spyURL?.absoluteString, "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=Southwark")
     }
     
     func test_loadImageFeedJson_startsDataTask() {
